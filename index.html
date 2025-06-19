@@ -124,8 +124,8 @@
         .hero-bg {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: 30%;
+            width: 70%;
             height: 100%;
             z-index: 1;
         }
@@ -144,7 +144,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(10,10,10,0.8) 50%, rgba(10,10,10,0) 100%);
+            background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(10,10,10,0.8) 20%, rgba(10,10,10,0) 100%);
         }
         
         .btn {
@@ -189,7 +189,8 @@
             }
         }
         
-        .services {
+        /* Секция услуг */
+        .section {
             padding: 6rem 5%;
             background: var(--dark);
         }
@@ -214,50 +215,67 @@
             background: var(--primary);
         }
         
-        .services-grid {
+        .services-grid, .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
         
-        .service-card {
+        .service-card, .team-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             overflow: hidden;
             transition: var(--transition);
         }
         
-        .service-card:hover {
+        .service-card:hover, .team-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
         
-        .service-img {
-            height: 200px;
+        .service-img, .team-img {
+            height: 300px;
             overflow: hidden;
         }
         
-        .service-img img {
+        .service-img img, .team-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
         }
         
-        .service-card:hover .service-img img {
-            transform: scale(1.1);
+        .service-card:hover .service-img img,
+        .team-card:hover .team-img img {
+            transform: scale(1.05);
         }
         
-        .service-content {
+        .service-content, .team-content {
             padding: 1.5rem;
+            text-align: center;
         }
         
-        .service-title {
+        .service-title, .team-title {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--primary);
+        }
+        
+        .team-position {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        /* О нас */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
         
         @media (max-width: 768px) {
@@ -284,8 +302,13 @@
                 margin: 0 auto;
             }
             
+            .hero-bg {
+                left: 0;
+                width: 100%;
+            }
+            
             .hero-bg:after {
-                background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(10,10,10,0.8) 50%, rgba(10,10,10,0) 100%);
+                background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(10,10,10,0.8) 20%, rgba(10,10,10,0) 100%);
             }
             
             .btn {
@@ -306,9 +329,8 @@
         <img src="img/logo.png" alt="Semenoff Production" class="logo">
         <div class="nav-links">
             <a href="#services">Услуги</a>
-            <a href="#portfolio">Портфолио</a>
+            <a href="portfolio.html">Портфолио</a>
             <a href="#about">О нас</a>
-            <a href="#contact">Контакты</a>
         </div>
     </nav>
 
@@ -319,8 +341,8 @@
                 <h1 class="hero-title">Semenoff Production</h1>
                 <p class="hero-subtitle">Профессиональная съёмка мероприятий и дизайн</p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn">Заказать</a>
-                    <a href="#portfolio" class="btn btn-outline">Портфолио</a>
+                    <a href="#services" class="btn">Наши услуги</a>
+                    <a href="portfolio.html" class="btn btn-outline">Портфолио</a>
                 </div>
             </div>
         </div>
@@ -332,7 +354,7 @@
     </section>
 
     <!-- Секция услуг -->
-    <section class="services" id="services">
+    <section class="section" id="services">
         <h2 class="section-title">Наши услуги</h2>
         <div class="services-grid">
             <div class="service-card">
@@ -360,6 +382,38 @@
                 <div class="service-content">
                     <h3 class="service-title">Графический дизайн</h3>
                     <p>Создание логотипов, баннеров, оформление мероприятий и полиграфии.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция "О нас" -->
+    <section class="section" id="about">
+        <h2 class="section-title">О нас</h2>
+        <div class="about-content">
+            <p>Мы - небольшая, но сильная команда профессионалов, объединённая любовью к визуальному искусству. Наш подход сочетает техническое мастерство с творческим видением, чтобы создавать продукты, которые действительно работают на вас.</p>
+            <p>Каждый проект для нас - это возможность сделать что-то особенное, что-то, что будет выделяться и решать конкретные задачи наших клиентов.</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="img/designer.jpg" alt="Дизайнер">
+                </div>
+                <div class="team-content">
+                    <h3 class="team-title">Константин Семенов</h3>
+                    <div class="team-position">Графический дизайнер</div>
+                    <p>Специалист по визуальным коммуникациям с 8-летним опытом. Создаю запоминающиеся образы, которые работают на ваш бренд.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="img/videographer.jpg" alt="Видеограф">
+                </div>
+                <div class="team-content">
+                    <h3 class="team-title">Сергей Семенов</h3>
+                    <div class="team-position">Видеограф</div>
+                    <p>Профессиональный оператор и монтажёр. Превращаю обычные моменты в киноистории, которые хочется пересматривать.</p>
                 </div>
             </div>
         </div>
