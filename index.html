@@ -177,6 +177,19 @@
         .btn-outline:hover {
             background: var(--primary);
         }
+
+        .btn-light {
+            background: var(--light);
+            color: var(--dark);
+            margin: 3rem auto 0;
+            display: block;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .btn-light:hover {
+            box-shadow: 0 10px 20px rgba(248, 249, 250, 0.3);
+        }
         
         @keyframes fadeInUp {
             from {
@@ -262,6 +275,10 @@
             margin-bottom: 1rem;
             color: var(--primary);
         }
+
+        .team-title {
+            color: var(--light); /* Белый цвет для имен */
+        }
         
         .team-position {
             color: var(--primary);
@@ -319,6 +336,10 @@
             
             .btn-outline {
                 margin-left: 0;
+            }
+
+            .about-content {
+                text-align: left; /* Обычное выравнивание для мобильных */
             }
         }
     </style>
@@ -394,6 +415,7 @@
                 </div>
             </div>
         </div>
+        <a href="#contact" class="btn btn-light">Обсудить / Заказать</a>
     </section>
 
     <!-- Секция "О нас" -->
