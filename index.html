@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary: #FF3E41;
-            --secondary: #00A8FF;
+            --primary: #ff0000; /* Изменён на #ff0000 */
+            --secondary: #ff0000; /* Изменён на #ff0000 */
             --dark: #0A0A0A;
             --light: #F8F9FA;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
@@ -110,6 +110,7 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease-out 0.3s forwards;
+            color: var(--primary); /* Добавлен красный цвет */
         }
         
         .hero-subtitle {
@@ -119,16 +120,6 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease-out 0.6s forwards;
-        }
-        
-        .hero-slogan {
-            font-size: 1.2rem;
-            font-weight: 300;
-            font-style: italic;
-            color: var(--secondary);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out 0.9s forwards;
         }
         
         .hero-bg {
@@ -175,7 +166,7 @@
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 62, 65, 0.3);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3); /* Обновлён цвет тени */
         }
         
         .btn-outline {
@@ -211,6 +202,7 @@
             margin-bottom: 3rem;
             text-align: center;
             position: relative;
+            color: var(--primary); /* Добавлен красный цвет */
         }
         
         .section-title:after {
@@ -267,7 +259,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: var(--primary); /* Добавлен красный цвет */
         }
         
         /* Адаптация */
@@ -307,7 +299,7 @@
 <body>
     <!-- Навигация -->
     <nav class="navbar">
-        <img src="logo-white.png" alt="Semenoff Production" class="logo">
+        <img src="img/logo.png" alt="Semenoff Production" class="logo"> <!-- Обновлён путь к логотипу -->
         <div class="nav-links">
             <a href="#services">Услуги</a>
             <a href="#portfolio">Портфолио</a>
@@ -322,7 +314,6 @@
             <div class="hero-text">
                 <h1 class="hero-title">Semenoff Production</h1>
                 <p class="hero-subtitle">Профессиональная съёмка мероприятий и дизайн</p>
-                <p class="hero-slogan">От пикселя — к кадру</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn">Заказать</a>
                     <a href="#portfolio" class="btn btn-outline">Портфолио</a>
