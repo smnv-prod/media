@@ -1,0 +1,47 @@
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 5%;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .logo {
+        margin: 0 auto;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-text {
+        margin: 0 auto;
+    }
+    
+    .hero-bg {
+        left: 0;
+        width: 100%;
+    }
+    
+    .hero-bg:after {
+        background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(10,10,10,0.8) 20%, rgba(10,10,10,0) 100%);
+    }
+    
+    .btn {
+        display: block;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+    
+    .btn-outline {
+        margin-left: 0;
+    }
+
+    .about-content {
+        text-align: left;
+    }
+}
