@@ -43,6 +43,15 @@ body {
     transition: var(--transition);
 }
 
+.logo-link {
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
