@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semenoff Production | Портфолио</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css" media="(max-width: 768px)">
-    <style>
+    <style>     
+        /* Стили категорий */
         .portfolio-categories {
             display: flex;
             justify-content: center;
@@ -31,12 +33,12 @@
             background: var(--primary);
         }
         
-        .portfolio-section {
-            display: none;
-        }
-        
-        .portfolio-section.active {
-            display: block;
+        /* Стили подкатегорий */
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--light);
         }
         
         .subcategories {
@@ -62,10 +64,20 @@
             background: var(--primary);
         }
         
+        /* Стили карточек проектов */
+        .project-grid-container {
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+            margin-bottom: 40px;
+        }
+        
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
         }
         
         .project-card {
@@ -107,68 +119,21 @@
             color: var(--primary);
         }
         
-        .project-modal {
+        /* Стили для скрытия/показа секций */
+        .portfolio-section {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 2rem;
         }
         
-        .modal-content {
-            max-width: 1000px;
-            margin: 2rem auto;
-            background: var(--dark);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
+        .portfolio-section.active {
+            display: block;
         }
         
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            color: var(--light);
-            cursor: pointer;
-            z-index: 2;
+        .subcategory-section {
+            display: none;
         }
         
-        .modal-body {
-            padding: 2rem;
-        }
-        
-        .modal-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .modal-video {
-            width: 100%;
-            margin: 1rem 0;
-        }
-        
-        .modal-description {
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-        
-        .modal-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .modal-images img {
-            width: 100%;
-            border-radius: 5px;
+        .subcategory-section.active {
+            display: block;
         }
     </style>
 </head>
@@ -180,7 +145,7 @@
         </a>
         <div class="nav-links">
             <a href="../index.html#services">Услуги</a>
-            <a href="index.html">Портфолио</a>
+            <a href="portfolio.html">Портфолио</a>
             <a href="../index.html#about">О нас</a>
         </div>
     </nav>
@@ -205,23 +170,26 @@
             
             <!-- Телевизионные передачи -->
             <div id="tv-projects" class="subcategory-section active">
-                <div class="project-grid">
-                    <div class="project-card" data-project="tv-show1">
-                        <div class="project-img">
-                            <img src="img/tv-show1.jpg" alt="Телепередача 1">
+                <h3 class="section-subtitle">Телевизионные передачи</h3>
+                <div class="project-grid-container">
+                    <div class="project-grid">
+                        <div class="project-card" data-project="tv-show1">
+                            <div class="project-img">
+                                <img src="img/tv-show1.jpg" alt="Телепередача 1">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Утренний эфир</h4>
+                                <p>Ежедневная утренняя передача на региональном телеканале</p>
+                            </div>
                         </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Утренний эфир</h4>
-                            <p>Ежедневная утренняя передача на региональном телеканале</p>
-                        </div>
-                    </div>
-                    <div class="project-card" data-project="tv-show2">
-                        <div class="project-img">
-                            <img src="img/tv-show2.jpg" alt="Телепередача 2">
-                        </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Городские новости</h4>
-                            <p>Еженедельный выпуск новостей города</p>
+                        <div class="project-card" data-project="tv-show2">
+                            <div class="project-img">
+                                <img src="img/tv-show2.jpg" alt="Телепередача 2">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Городские новости</h4>
+                                <p>Еженедельный выпуск новостей города</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -229,23 +197,26 @@
             
             <!-- Рекламные ролики -->
             <div id="commercial-projects" class="subcategory-section">
-                <div class="project-grid">
-                    <div class="project-card" data-project="commercial1">
-                        <div class="project-img">
-                            <img src="img/commercial1.jpg" alt="Рекламный ролик 1">
+                <h3 class="section-subtitle">Рекламные ролики</h3>
+                <div class="project-grid-container">
+                    <div class="project-grid">
+                        <div class="project-card" data-project="commercial1">
+                            <div class="project-img">
+                                <img src="img/commercial1.jpg" alt="Рекламный ролик 1">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Реклама кафе</h4>
+                                <p>Рекламный ролик для сети кофеен</p>
+                            </div>
                         </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Реклама кафе</h4>
-                            <p>Рекламный ролик для сети кофеен</p>
-                        </div>
-                    </div>
-                    <div class="project-card" data-project="commercial2">
-                        <div class="project-img">
-                            <img src="img/commercial2.jpg" alt="Рекламный ролик 2">
-                        </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Автосалон</h4>
-                            <p>Реклама нового автосалона в городе</p>
+                        <div class="project-card" data-project="commercial2">
+                            <div class="project-img">
+                                <img src="img/commercial2.jpg" alt="Рекламный ролик 2">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Автосалон</h4>
+                                <p>Реклама нового автосалона в городе</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -253,23 +224,26 @@
             
             <!-- Мероприятия -->
             <div id="event-projects" class="subcategory-section">
-                <div class="project-grid">
-                    <div class="project-card" data-project="event1">
-                        <div class="project-img">
-                            <img src="img/event1.jpg" alt="Мероприятие 1">
+                <h3 class="section-subtitle">Мероприятия</h3>
+                <div class="project-grid-container">
+                    <div class="project-grid">
+                        <div class="project-card" data-project="event1">
+                            <div class="project-img">
+                                <img src="img/event1.jpg" alt="Мероприятие 1">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Корпоратив</h4>
+                                <p>Съёмка корпоративного праздника</p>
+                            </div>
                         </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Корпоратив</h4>
-                            <p>Съёмка корпоративного праздника</p>
-                        </div>
-                    </div>
-                    <div class="project-card" data-project="event2">
-                        <div class="project-img">
-                            <img src="img/event2.jpg" alt="Мероприятие 2">
-                        </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Свадьба</h4>
-                            <p>Съёмка свадебного торжества</p>
+                        <div class="project-card" data-project="event2">
+                            <div class="project-img">
+                                <img src="img/event2.jpg" alt="Мероприятие 2">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Свадьба</h4>
+                                <p>Съёмка свадебного торжества</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -286,23 +260,26 @@
             
             <!-- Логотипы -->
             <div id="logo-projects" class="subcategory-section active">
-                <div class="project-grid">
-                    <div class="project-card" data-project="logo1">
-                        <div class="project-img">
-                            <img src="img/logo1.jpg" alt="Логотип 1">
+                <h3 class="section-subtitle">Логотипы</h3>
+                <div class="project-grid-container">
+                    <div class="project-grid">
+                        <div class="project-card" data-project="logo1">
+                            <div class="project-img">
+                                <img src="img/logo1.jpg" alt="Логотип 1">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Логотип кафе</h4>
+                                <p>Фирменный стиль для кофейни</p>
+                            </div>
                         </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Логотип кафе</h4>
-                            <p>Фирменный стиль для кофейни</p>
-                        </div>
-                    </div>
-                    <div class="project-card" data-project="logo2">
-                        <div class="project-img">
-                            <img src="img/logo2.jpg" alt="Логотип 2">
-                        </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Логотип студии</h4>
-                            <p>Логотип для фотостудии</p>
+                        <div class="project-card" data-project="logo2">
+                            <div class="project-img">
+                                <img src="img/logo2.jpg" alt="Логотип 2">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Логотип студии</h4>
+                                <p>Логотип для фотостудии</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -310,23 +287,26 @@
             
             <!-- Баннеры -->
             <div id="banner-projects" class="subcategory-section">
-                <div class="project-grid">
-                    <div class="project-card" data-project="banner1">
-                        <div class="project-img">
-                            <img src="img/banner1.jpg" alt="Баннер 1">
+                <h3 class="section-subtitle">Баннеры</h3>
+                <div class="project-grid-container">
+                    <div class="project-grid">
+                        <div class="project-card" data-project="banner1">
+                            <div class="project-img">
+                                <img src="img/banner1.jpg" alt="Баннер 1">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Рекламный баннер</h4>
+                                <p>Баннер для выставки</p>
+                            </div>
                         </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Рекламный баннер</h4>
-                            <p>Баннер для выставки</p>
-                        </div>
-                    </div>
-                    <div class="project-card" data-project="banner2">
-                        <div class="project-img">
-                            <img src="img/banner2.jpg" alt="Баннер 2">
-                        </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Промо-баннер</h4>
-                            <p>Баннер для акции</p>
+                        <div class="project-card" data-project="banner2">
+                            <div class="project-img">
+                                <img src="img/banner2.jpg" alt="Баннер 2">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Промо-баннер</h4>
+                                <p>Баннер для акции</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -334,23 +314,26 @@
             
             <!-- Соц. сети -->
             <div id="social-projects" class="subcategory-section">
-                <div class="project-grid">
-                    <div class="project-card" data-project="social1">
-                        <div class="project-img">
-                            <img src="img/social1.jpg" alt="Соц. сети 1">
+                <h3 class="section-subtitle">Социальные сети</h3>
+                <div class="project-grid-container">
+                    <div class="project-grid">
+                        <div class="project-card" data-project="social1">
+                            <div class="project-img">
+                                <img src="img/social1.jpg" alt="Соц. сети 1">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Оформление Instagram</h4>
+                                <p>Единый стиль для бренда</p>
+                            </div>
                         </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Оформление Instagram</h4>
-                            <p>Единый стиль для бренда</p>
-                        </div>
-                    </div>
-                    <div class="project-card" data-project="social2">
-                        <div class="project-img">
-                            <img src="img/social2.jpg" alt="Соц. сети 2">
-                        </div>
-                        <div class="project-content">
-                            <h4 class="project-title">Оформление ВКонтакте</h4>
-                            <p>Дизайн группы</p>
+                        <div class="project-card" data-project="social2">
+                            <div class="project-img">
+                                <img src="img/social2.jpg" alt="Соц. сети 2">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Оформление ВКонтакте</h4>
+                                <p>Дизайн группы</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -358,218 +341,73 @@
         </div>
         
         <!-- Лендинги -->
-        <div id="landing-section" class="subcategory-section">
-            <div class="project-grid">
-                <div class="project-card" data-project="landing1">
-                    <div class="project-img">
-                        <img src="img/landing1.jpg" alt="Лендинг 1">
+        <div id="landing-section" class="portfolio-section">
+            <h3 class="section-subtitle">Лендинги</h3>
+            <div class="project-grid-container">
+                <div class="project-grid">
+                    <div class="project-card" data-project="landing1">
+                        <div class="project-img">
+                            <img src="img/landing1.jpg" alt="Лендинг 1">
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Лендинг фотографа</h4>
+                            <p>Сайт-визитка для фотографа</p>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h4 class="project-title">Лендинг фотографа</h4>
-                        <p>Сайт-визитка для фотографа</p>
-                    </div>
-                </div>
-                <div class="project-card" data-project="landing2">
-                    <div class="project-img">
-                        <img src="img/landing2.jpg" alt="Лендинг 2">
-                    </div>
-                    <div class="project-content">
-                        <h4 class="project-title">Лендинг мастера</h4>
-                        <p>Сайт для мастера по ремонту</p>
+                    <div class="project-card" data-project="landing2">
+                        <div class="project-img">
+                            <img src="img/landing2.jpg" alt="Лендинг 2">
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Лендинг мастера</h4>
+                            <p>Сайт для мастера по ремонту</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </section>
 
-    <!-- Модальное окно проекта -->
-    <div id="project-modal" class="project-modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div class="modal-body">
-                <h3 class="modal-title" id="modal-project-title">Название проекта</h3>
-                <p class="modal-description" id="modal-project-description">Описание проекта</p>
-                
-                <div id="modal-video-container">
-                    <!-- Видео будет вставлено сюда -->
-                </div>
-                
-                <div class="modal-images" id="modal-project-images">
-                    <!-- Изображения будут вставлены сюда -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="../js/script.js"></script>
     <script>
         // Переключение категорий
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        const portfolioSections = document.querySelectorAll('.portfolio-section');
-        
-        categoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Удаляем активный класс у всех кнопок и секций
-                categoryBtns.forEach(b => b.classList.remove('active'));
-                portfolioSections.forEach(section => section.classList.remove('active'));
-                
-                // Добавляем активный класс текущей кнопке и соответствующей секции
-                btn.classList.add('active');
-                const category = btn.getAttribute('data-category');
-                document.getElementById(`${category}-section`).classList.add('active');
-            });
-        });
-        
-        // Переключение подкатегорий
-        const subcategoryBtns = document.querySelectorAll('.subcategory-btn');
-        
-        subcategoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const parentSection = btn.closest('.portfolio-section');
-                const subcategorySections = parentSection.querySelectorAll('.subcategory-section');
-                
-                // Удаляем активный класс у всех кнопок и подсекций
-                parentSection.querySelectorAll('.subcategory-btn').forEach(b => b.classList.remove('active'));
-                subcategorySections.forEach(section => section.classList.remove('active'));
-                
-                // Добавляем активный класс текущей кнопке и соответствующей подсекции
-                btn.classList.add('active');
-                const subcategory = btn.getAttribute('data-subcategory');
-                parentSection.querySelector(`#${subcategory}-projects`).classList.add('active');
-            });
-        });
-        
-        // Модальное окно проекта
-        const projectCards = document.querySelectorAll('.project-card');
-        const projectModal = document.getElementById('project-modal');
-        const modalClose = document.querySelector('.modal-close');
-        
-        // Данные проектов (в реальном проекте можно загружать через API)
-        const projectsData = {
-            'tv-show1': {
-                title: 'Утренний эфир',
-                description: 'Полный цикл производства ежедневной утренней передачи для регионального телеканала. Включает съемку, монтаж, цветокоррекцию и звуковое оформление. Проект длился 6 месяцев, за которые мы выпустили 120 эпизодов.',
-                videos: ['videos/tv-show1.mp4'],
-                images: ['img/tv-show1.jpg']
-            },
-            'tv-show2': {
-                title: 'Городские новости',
-                description: 'Еженедельный выпуск новостей города с репортажами и интервью. Мы отвечали за всю пост-продакшн часть, включая монтаж, графику и финальный рендеринг.',
-                videos: ['videos/tv-show2.mp4'],
-                images: ['img/tv-show2.jpg']
-            },
-            'commercial1': {
-                title: 'Реклама кафе',
-                description: '30-секундный рекламный ролик для сети кофеен. Снято в трех локациях с участием актеров. Ролик транслировался на местном телевидении и в соцсетях.',
-                videos: ['videos/commercial1.mp4'],
-                images: ['img/commercial1.jpg']
-            },
-            'commercial2': {
-                title: 'Автосалон',
-                description: 'Серия рекламных роликов для нового автосалона. Включает обзор автомобилей, интервью с владельцем и репортаж с открытия.',
-                videos: ['videos/commercial2.mp4'],
-                images: ['img/commercial2.jpg']
-            },
-            'event1': {
-                title: 'Корпоратив',
-                description: 'Полная съемка корпоративного праздника крупной компании. Включает подготовку сценария, съемку основных моментов и создание итогового видео-отчета.',
-                images: ['img/event1.jpg']
-            },
-            'event2': {
-                title: 'Свадьба',
-                description: 'Свадебная съемка "под ключ". Включает подготовку, съемку церемонии, банкета и создание свадебного фильма.',
-                images: ['img/event2.jpg']
-            },
-            'logo1': {
-                title: 'Логотип кафе',
-                description: 'Разработка фирменного стиля для новой кофейни. Включает логотип, цветовую палитру и руководство по использованию.',
-                images: ['img/logo1.jpg']
-            },
-            'logo2': {
-                title: 'Логотип студии',
-                description: 'Создание современного логотипа для фотостудии. Логотип отражает творческий подход и профессионализм студии.',
-                images: ['img/logo2.jpg']
-            },
-            'banner1': {
-                title: 'Рекламный баннер',
-                description: 'Дизайн баннера для выставки современного искусства. Размер 3x6 метров, печать на баннерной ткани.',
-                images: ['img/banner1.jpg']
-            },
-            'banner2': {
-                title: 'Промо-баннер',
-                description: 'Серия баннеров для рекламной акции. Включает 3 варианта дизайна для разных площадок.',
-                images: ['img/banner2.jpg']
-            },
-            'social1': {
-                title: 'Оформление Instagram',
-                description: 'Полное оформление Instagram-аккаунта для бренда одежды. Включает шаблоны сторис, хайлайтс и основную визуальную концепцию.',
-                images: ['img/social1.jpg']
-            },
-            'social2': {
-                title: 'Оформление ВКонтакте',
-                description: 'Дизайн группы ВКонтакте для образовательного проекта. Включает обложку, меню и шаблоны постов.',
-                images: ['img/social2.jpg']
-            },
-            'landing1': {
-                title: 'Лендинг фотографа',
-                description: 'Одностраничный сайт для фотографа. Адаптивный дизайн, галерея работ, форма обратной связи.',
-                images: ['img/landing1.jpg']
-            },
-            'landing2': {
-                title: 'Лендинг мастера',
-                description: 'Сайт-визитка для мастера по ремонту. Включает описание услуг, портфолио и контактную информацию.',
-                images: ['img/landing2.jpg']
-            }
-        };
-        
-        // Открытие модального окна
-        projectCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const projectId = card.getAttribute('data-project');
-                const project = projectsData[projectId];
-                
-                document.getElementById('modal-project-title').textContent = project.title;
-                document.getElementById('modal-project-description').textContent = project.description;
-                
-                const videoContainer = document.getElementById('modal-video-container');
-                videoContainer.innerHTML = '';
-                
-                if (project.videos) {
-                    project.videos.forEach(video => {
-                        const videoElem = document.createElement('video');
-                        videoElem.src = video;
-                        videoElem.controls = true;
-                        videoElem.classList.add('modal-video');
-                        videoContainer.appendChild(videoElem);
-                    });
-                }
-                
-                const imagesContainer = document.getElementById('modal-project-images');
-                imagesContainer.innerHTML = '';
-                
-                project.images.forEach(image => {
-                    const imgElem = document.createElement('img');
-                    imgElem.src = image;
-                    imgElem.alt = project.title;
-                    imagesContainer.appendChild(imgElem);
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const portfolioSections = document.querySelectorAll('.portfolio-section');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Удаляем активный класс у всех кнопок и секций
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    portfolioSections.forEach(section => section.classList.remove('active'));
+                    
+                    // Добавляем активный класс текущей кнопке и соответствующей секции
+                    btn.classList.add('active');
+                    const category = btn.getAttribute('data-category');
+                    document.getElementById(`${category}-section`).classList.add('active');
                 });
-                
-                projectModal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
             });
-        });
-        
-        // Закрытие модального окна
-        modalClose.addEventListener('click', () => {
-            projectModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        window.addEventListener('click', (e) => {
-            if (e.target === projectModal) {
-                projectModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
+            
+            // Переключение подкатегорий
+            const subcategoryBtns = document.querySelectorAll('.subcategory-btn');
+            
+            subcategoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const parentSection = this.closest('.portfolio-section');
+                    const subcategorySections = parentSection.querySelectorAll('.subcategory-section');
+                    
+                    // Удаляем активный класс у всех кнопок и подсекций
+                    parentSection.querySelectorAll('.subcategory-btn').forEach(b => b.classList.remove('active'));
+                    subcategorySections.forEach(section => section.classList.remove('active'));
+                    
+                    // Добавляем активный класс текущей кнопке
+                    this.classList.add('active');
+                    
+                    // Показываем соответствующую подсекцию
+                    const subcategory = this.getAttribute('data-subcategory');
+                    parentSection.querySelector(`#${subcategory}-projects`).classList.add('active');
+                });
+            });
         });
     </script>
 </body>
